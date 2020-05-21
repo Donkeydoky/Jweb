@@ -2,17 +2,27 @@ package action;
 
 import com.opensymphony.xwork2.ModelDriven;
 import entity.User;
+import service.UserNotFoundException;
+import service.UserService;
 
 public class loginAction implements ModelDriven<User> {
 
     private User user = new User();
+    private UserService userService = new UserService();
+    private String msg = "login success!";
 
-    private String msg = "login error!";
+    public String login() throws Exception {
 
-    public String execute() throws Exception {
-        System.out.println("username = "+ user.getUsername()+"password = "+user.getPassword());
-        if (user.getUsername().equals("admin") && user.getPassword().equals("123")) {
-                msg = "login success!";
+        //catch the error with UserNotFoundException.
+        //e.printStackTrace can print out the exception into log,
+        //in order to prevent the attacts (brutal force password cracker).
+        //dont handle the username and password error separately as it
+        //can lead to guessing username or password in the database.
+        try {
+            userService.login(user);
+        }catch (UserNotFoundException e){
+            msg = e.getMessage();
+            e.printStackTrace();
         }
         return "success";
     }
@@ -21,9 +31,9 @@ public class loginAction implements ModelDriven<User> {
         return user;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(User user) {this.user = user;
     }
+
 
     public String getMsg() {
         return msg;

@@ -11,6 +11,6 @@
     <title>登录成功</title>
 </head>
 <body>
-<h1>用户${user.username}, ${msg}</h1>
+<h1>用户${username}, ${msg}</h1>
 </body>
 </html>
