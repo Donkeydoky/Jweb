@@ -5,9 +5,30 @@
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 
 <struts>
+
     <package name="default" namespace="/" extends="struts-default">
-        <action name="Login" class="action.loginAction" method="login">
+        <!-- add multiple method in loginAction.java,
+        and map them with multiple <action></action> tag sections with different
+        name and method values. access the coressponding method in the url by typing
+        "action_name" in the index url. For example, for accessing add() in loginAction.java.
+        typing http://localhost:8080/addAction, the desired result will be "用户, add method"
+        in this case.-->
+        <action name="loginAction" class="action.loginAction" method="login">
             <result name="success">/success.jsp</result>
         </action>
+        <action name="addAction" class="action.loginAction" method="add">
+            <result name="success">/success.jsp</result>
+        </action>
+        <action name="deleteAction" class="action.loginAction" method="delete">
+            <result name="success">/success.jsp</result>
+        </action>
+        <action name="loginErrAction" class="action.loginAction" method="loginErr">
+            <result name="success">/login.jsp</result>
+        </action>
+
+        <action name="login">
+            <result>login.jsp</result>
+        </action>
+
     </package>
 </struts>

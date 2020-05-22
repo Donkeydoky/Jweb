@@ -27,24 +27,19 @@ public class loginAction implements ModelDriven<User> {
         return "success";
     }
 
-    public User getUser() {
-        return user;
-    }
+    public String add(){ msg = "add method"; return "success"; }
 
-    public void setUser(User user) {this.user = user;
-    }
+    public String delete(){ msg = "delete method"; return "success"; }
 
+    public String loginErr(){ msg = "login Error!"; return "success"; }
 
-    public String getMsg() {
-        return msg;
-    }
+    public User getUser() { return user;}
 
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
+    public void setUser(User user) {this.user = user; }
 
+    public String getMsg() { return msg; }
+
+    public void setMsg(String msg) {this.msg = msg;}
     @Override
-    public User getModel() {
-        return user;
-    }
+    public User getModel() { return user; }
 }

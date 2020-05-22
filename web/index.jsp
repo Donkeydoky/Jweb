@@ -2,30 +2,17 @@
   Created by IntelliJ IDEA.
   User: xuliangliang
   Date: 2020-05-21
-  Time: 17:42
+  Time: 20:30
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title>用户登录</title>
+    <title>indexPage</title>
 </head>
 <body>
-<h1>用户登录</h1>
-<form action="Login.action" method="post">
-  <table>
-    <tr>
-      <td>用户名：</td>
-      <td><input type="text" name="username"></td>
-    </tr>
-    <tr>
-      <td>密码：</td>
-      <td><input type="password" name="password"></td>
-    </tr>
-    <tr>
-      <td colspan="2" style="text-align: center"><input type="submit" value="登录"></td>
-    </tr>
-  </table>
-</form>
+    <a href="login.jsp">登陆method1</a><br>
+    <a href="login">登陆method2</a><br>
+    <a href="login.action">登陆method3</a>
 </body>
 </html>
